@@ -3,106 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>School Unblocker</title>
-    <link rel="icon" href="https://raw.githubusercontent.com/EliteCronax/anthem-alpha/refs/heads/main/favicon/favicon.ico" type="image/x-icon"> <!-- Favicon Link -->
+    <title>FortifyFL</title>
+    <link rel="icon" href="https://raw.githubusercontent.com/EliteCronax/hamburger-open-induct/refs/heads/main/favicon/favicon.ico" type="image/x-icon">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        body, html {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            height: 100%;
+            overflow: hidden;
         }
-
-        header {
-            background: #007bff;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-        }
-
-        main {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .card {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            text-align: center;
-        }
-
-        button {
-            background-color: #007bff;
-            color: white;
+        iframe {
+            width: 100%;
+            height: 100%;
             border: none;
-            border-radius: 5px;
-            padding: 10px 20px;
+        }
+        #panic-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-size: 24px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            z-index: 1000;
         }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        .hidden-content {
+        #panic-image {
             display: none;
-            margin-top: 20px;
-            animation: fadeIn 0.5s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        footer {
-            text-align: center;
-            padding: 10px;
-            background: #007bff;
-            color: white;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 90%;
+            max-height: 90%;
+            z-index: 2000;
         }
     </style>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#revealButton').click(function() {
-                $('#hiddenContent').slideToggle(300); // Smooth toggle animation
-            });
-        });
-    </script>
 </head>
 <body>
-    <header>
-        <h1>School Unblocker</h1>
-        <p>Your gateway to knowledge!</p>
-    </header>
-    <main>
-        <div class="card" id="contentCard">
-            <h2>Welcome to the Unblocker!</h2>
-            <p>Click the button below to reveal the hidden content.</p>
-            <button id="revealButton">Reveal Content</button>
-            <div class="hidden-content" id="hiddenContent">
-                <h3>Unblocked Content</h3>
-                <p>This is the content that was previously blocked. Enjoy learning!</p>
-            </div>
-        </div>
-    </main>
-    <footer>
-        <p>&copy; 2023 School Unblocker. All rights reserved.</p>
-    </footer>
+    <iframe src="https://oceanstudies.lat" title="🤫"></iframe>
+    <div id="panic-button">🙀</div>
+    <img id="panic-image" src="https://raw.githubusercontent.com/EliteCronax/hamburger-open-induct/refs/heads/main/favicon/panic.ico" alt="Panic!">
+
+    <script>
+        const panicButton = document.getElementById('panic-button');
+        const panicImage = document.getElementById('panic-image');
+
+        function togglePanicImage() {
+            panicImage.style.display = panicImage.style.display === 'none' ? 'block' : 'none';
+        }
+
+        panicButton.addEventListener('click', togglePanicImage);
+
+        document.addEventListener('keydown', function(event) {
+            if (event.altKey) {
+                togglePanicImage();
+            }
+        });
+
+        document.addEventListener('click', function(event) {
+            if (event.target !== panicButton && event.target !== panicImage) {
+                panicImage.style.display = 'none';
+            }
+        });
 </body>
 </html
